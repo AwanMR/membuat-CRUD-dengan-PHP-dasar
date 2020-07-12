@@ -11,6 +11,9 @@ function query($query) {
   }
   return $hasil;
 }
+function getId($id) {
+  return query("SELECT * FROM movie WHERE id = $id");
+}
 function tambah($data) {
   global $link;
   $judul = htmlspecialchars($data['judul']);

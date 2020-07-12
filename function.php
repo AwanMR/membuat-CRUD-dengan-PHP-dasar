@@ -65,3 +65,9 @@ function upload() {
   //kembalikan nama barunya 
   return $nama_baru;
 }
+function hapus($id) {
+  global $link;
+  mysqli_query($link, "DELETE FROM movie WHERE id = $id");
+  
+  return mysqli_affected_rows($link);
+}

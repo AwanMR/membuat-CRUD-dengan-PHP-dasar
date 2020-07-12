@@ -71,3 +71,19 @@ function hapus($id) {
   
   return mysqli_affected_rows($link);
 }
+function update($data) {
+  global $link;
+  $id = htmlspecialchars($data['id']);
+  $judul = htmlspecialchars($data['judul']);
+  $genre = htmlspecialchars($data['genre']);
+  //bila tidak upload poster maka pakai poster yang lama
+  if ($_FILES['poster']['error'] === 4) {
+    $poster_lama = $data['poster_lama'];
+  } else {
+    $poster = upload();
+  }
+  
+  mysqli_query($link, "UPDATE movie SET judul = '$judul', genre = $genre', poster = '$poster' WHERE id = $id");
+  
+  return mysqli_affected_rows($link);
+}

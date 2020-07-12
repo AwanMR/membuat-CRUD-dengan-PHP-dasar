@@ -26,7 +26,7 @@ $movies = query("SELECT * FROM movie");
         <td><?= $no++; ?></td>
         <td><?= $movie['judul']; ?></td>
         <td><?= $movie['genre']; ?></td>
-        <td><img src="img/<?= $movie['judul']; ?>" width="50px"></td>
+        <td><img src="img/<?= $movie['poster']; ?>" width="50px"></td>
         <td></td>
           <a href="update.php?id=<?= $movie['id']; ?>">update</a>
           <a href="hapus.php?id=<?= $movie['id']; ?>" onclick="return confirm('anda yakin?');">hapus</a>
